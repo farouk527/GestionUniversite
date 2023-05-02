@@ -14,6 +14,7 @@ import { Form, Button, Grid, Icon } from 'semantic-ui-react';
 
   return (
     <div style={{ backgroundColor: '#f7f7f7', minHeight: '100vh' }}>
+    <h1 style={{color:"black"}}>AJOUTER ETUDIANT</h1>
     <Grid centered middle>
       <Grid.Column width={6}>
         <Form onSubmit={handleSubmit}>
