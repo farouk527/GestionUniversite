@@ -11,11 +11,12 @@ function EmploiDuTempsTable() {
 
   const handleSearch = (event) => {
     const filtered = emploiDuTemps.filter((cours) => {return (
+      cours.enseignant.toLowerCase().includes(event.toLowerCase())||
         cours.jour.toLowerCase().includes(event.toLowerCase()) ||
         cours.salle.toLowerCase().includes(event.toLowerCase()) ||
         cours.matiere.toLowerCase().includes(event.toLowerCase()) ||
         cours.num_salle.toString().toLowerCase().includes(event.toLowerCase()) ||
-        cours.heure.toLowerCase().includes(event.toLowerCase())
+        cours.heure.toLowerCase().includes(event.toLowerCase()) 
       );
     });
     setFilteredData(filtered);
@@ -65,7 +66,10 @@ function EmploiDuTempsTable() {
             <Table.HeaderCell>Matière</Table.HeaderCell>
             <Table.HeaderCell>Numéro de salle</Table.HeaderCell>
             <Table.HeaderCell>Horaire</Table.HeaderCell>
+            <Table.HeaderCell>Enseignant</Table.HeaderCell>
             <Table.HeaderCell>Supprimer</Table.HeaderCell>
+
+
           </Table.Row>
         </Table.Header>
 
@@ -77,6 +81,8 @@ function EmploiDuTempsTable() {
               <Table.Cell>{cours.matiere}</Table.Cell>
               <Table.Cell>{cours.num_salle}</Table.Cell>
               <Table.Cell>{cours.heure}</Table.Cell>
+              <Table.Cell>{cours.enseignant}</Table.Cell>
+
 
 
               <Table.Cell>
@@ -97,7 +103,7 @@ function EmploiDuTempsTable() {
     <Form>
       <Form.Field required>
         <label>Jour</label>
-        <Input name='jour' placeholder='Jour'   onChange={handleChange} />
+        <Input name='jour' placeholder='Jour'   onChange={handleChange}  />
       </Form.Field>
       <Form.Field required>
         <label>Salle</label>
@@ -115,6 +121,11 @@ function EmploiDuTempsTable() {
         <label>Horaire</label>
         <Input name='heure' placeholder='Horaire' onChange={handleChange} />
       </Form.Field>
+      <Form.Field required>
+        <label>Enseignant</label>
+        <Input name='enseignant' placeholder='enseignant' onChange={handleChange} />
+      </Form.Field>
+
     </Form>
   </Modal.Content>
   <Modal.Actions>

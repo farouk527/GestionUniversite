@@ -17,7 +17,7 @@ const setColorChange = (event) => {
   
  return (
     <Menu>
-      <Menu.Item header>My APPLICATION </Menu.Item>
+      <Menu.Item >My APPLICATION </Menu.Item>
 
                 <Menu.Item >
 
